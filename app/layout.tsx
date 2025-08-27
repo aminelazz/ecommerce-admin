@@ -3,6 +3,7 @@ import { ClerkProvider } from '@clerk/nextjs'
 import { Geist, Geist_Mono } from 'next/font/google'
 
 import { ModalProvider } from '@/providers/modal-provider'
+import { ToastProvider } from '@/providers/toast-provider'
 
 import './globals.css'
 
@@ -32,6 +33,7 @@ export default function RootLayout({
     <ClerkProvider afterSignOutUrl={"/"}>
       <html lang="en">
         <body className={geistSans.className}>
+          <ToastProvider />
           <ModalProvider />
           {children}
         </body>
