@@ -3,6 +3,8 @@ import { auth } from "@clerk/nextjs/server"
 
 import { PrismaClient } from "@/lib/generated/prisma"
 
+// Initialize Prisma Client
+const prismadb = new PrismaClient()
 
 export async function POST(req: Request) {
   try {
@@ -17,9 +19,6 @@ export async function POST(req: Request) {
     if (!name) {
       return new NextResponse('Name is required', { status: 400 })
     }
-
-    // Initialize Prisma Client
-    const prismadb = new PrismaClient()
 
     const store = await prismadb.store.create({
       data: {

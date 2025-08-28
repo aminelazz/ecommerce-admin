@@ -3,18 +3,21 @@ import { auth } from "@clerk/nextjs/server";
 import { redirect } from 'next/navigation';
 
 import { PrismaClient } from "@/lib/generated/prisma"
+import SettingsForm from './components/settings-form';
 
 // Initialize Prisma Client
 const prismadb = new PrismaClient()
 
-interface DashboardPageProps {
-  params: { storeId: string }
+interface SettingsPageProps {
+  params: {
+    storeId: string
+  }
 }
 
-const DashboardPage: React.FC<DashboardPageProps> = async ({ params }) => {
+async function SettingsPage({ params }: SettingsPageProps) {
   const { userId } = await auth();
   const { storeId } = await params
-
+  
   if (!userId) {
     redirect("/sign-in");
   }
@@ -26,11 +29,17 @@ const DashboardPage: React.FC<DashboardPageProps> = async ({ params }) => {
     },
   });
 
+  if (!store) {
+    redirect("/");
+  }
+  
   return (
-    <>
-      Active store: {store?.name}
-    </>
+    <div className='flex-col'>
+      <div className='flex-1 space-y-4 p-8 pt-6'>
+        <SettingsForm initialData={store} />
+      </div>
+    </div>
   )
 }
 
-export default DashboardPage
+export default SettingsPage
