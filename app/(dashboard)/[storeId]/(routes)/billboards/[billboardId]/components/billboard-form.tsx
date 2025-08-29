@@ -11,10 +11,8 @@ import { zodResolver } from "@hookform/resolvers/zod"
 
 import Heading from "@/components/ui/heading"
 import AlertModal from "@/components/modals/alert-modal"
-import ApiAlert from "@/components/ui/api-alert"
-import useOrigin from "@/hooks/use-origin"
 import ImageUpload from "@/components/ui/image-upload"
-import { Billboard, Store } from "@/lib/generated/prisma"
+import { Billboard } from "@/lib/generated/prisma"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
@@ -34,7 +32,6 @@ type BillboardFormValues = z.infer<typeof formSchemas>
 function BillboardForm({ initialData }: BillboardFormProps) {
   const params = useParams()
   const router = useRouter()
-  const origin = useOrigin()
 
   const [open, setOpen] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -78,7 +75,7 @@ function BillboardForm({ initialData }: BillboardFormProps) {
       const response =  await axios.delete(`/api/${params.storeId}/billboards/${params.billboardId}`)
       toast.success("Billboard deleted.")
       router.refresh()
-      router.push("/")
+      router.push(`/${params.storeId}/billboards`)
     } catch (error) {
       toast.error("Make sure you removed all categories using this billboard first.")
     } finally {

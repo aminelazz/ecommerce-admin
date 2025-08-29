@@ -12,7 +12,7 @@ export async function POST(
 ) {
   try {
     const body = await req.json()
-    const { storeId } = params
+    const { storeId } = await params
     const { label, imageUrl } = body
     const { userId } = await auth()
 
@@ -63,7 +63,7 @@ export async function GET(
   { params }: { params: { storeId: string } }
 ) {
   try {
-    const { storeId } = params
+    const { storeId } = await params
 
     if (!storeId) {
       return new NextResponse('Store ID is required', { status: 400 })

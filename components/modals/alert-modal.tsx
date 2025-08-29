@@ -40,7 +40,7 @@ function AlertModal({ isOpen, onClose, onConfirm, loading }: AlertModalProps) {
 
   return (
     <Modal
-      title="Delete store"
+      title="Are you sure?"
       description="This action cannot be undone."
       isOpen={isOpen}
       onClose={onClose}
