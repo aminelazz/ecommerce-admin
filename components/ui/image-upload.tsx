@@ -22,7 +22,7 @@ function ImageUpload({ disabled, onChange, onRemove, value }: ImageUploadProps) 
   }, [])
   
   const onUpload = (result: any) => {
-    onChange(result?.info?.secure_url)
+    onChange(result?.info?.url)
   }
   
   if (!isMounted) {
@@ -44,7 +44,6 @@ function ImageUpload({ disabled, onChange, onRemove, value }: ImageUploadProps) 
                 fill
                 src={url}
                 alt="Image"
-                layout="fill"
                 className="h-full w-full object-cover rounded-md"
               />
             </div>
@@ -52,7 +51,7 @@ function ImageUpload({ disabled, onChange, onRemove, value }: ImageUploadProps) 
         }
         </div>
         <CldUploadWidget
-          onSuccess={onUpload}
+          onUpload={onUpload}
           uploadPreset="ntbwfuhh"
         >
           {({ open }) => {
