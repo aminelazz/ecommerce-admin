@@ -5,7 +5,7 @@ import { useParams, useRouter } from "next/navigation"
 import { Check, ChevronsUpDown, PlusCircle, Store as StoreIcon } from "lucide-react"
 
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
-import { Store } from "@/lib/generated/prisma"
+import { Store } from "@prisma/client"
 import { useStoreModal } from "@/hooks/use-store-modal"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"

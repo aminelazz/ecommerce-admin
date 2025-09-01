@@ -1,10 +1,7 @@
 import React from 'react'
 
-import { PrismaClient } from "@/lib/generated/prisma"
+import prismadb from "@/lib/prismadb";
 import SizeForm from './components/size-form';
-
-// Initialize Prisma Client
-const prismadb = new PrismaClient()
 
 async function SizePage(
   { params }: { params: { sizeId: string; storeId: string }}

@@ -2,11 +2,8 @@ import React from "react"
 import { format } from "date-fns"
 
 import CategoryClient from "./components/category-client"
-import { PrismaClient } from "@/lib/generated/prisma"
+import prismadb from "@/lib/prismadb";
 import { CategoryColumn } from "./components/columns"
-
-// Initialize Prisma Client
-const prismadb = new PrismaClient()
 
 async function CategoriesPage(
   { params }: { params: { storeId: string } }

@@ -2,12 +2,9 @@ import React from "react"
 import { format } from "date-fns"
 
 import ProductClient from "./components/product-client"
-import { PrismaClient } from "@/lib/generated/prisma"
+import prismadb from "@/lib/prismadb";
 import { ProductColumn } from "./components/columns"
 import { formatter } from "@/lib/utils"
-
-// Initialize Prisma Client
-const prismadb = new PrismaClient()
 
 async function ProductsPage(
   { params }: { params: { storeId: string } }

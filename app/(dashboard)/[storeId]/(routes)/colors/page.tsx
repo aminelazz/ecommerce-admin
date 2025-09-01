@@ -2,11 +2,8 @@ import React from "react"
 import { format } from "date-fns"
 
 import ColorClient from "./components/color-client"
-import { PrismaClient } from "@/lib/generated/prisma"
+import prismadb from "@/lib/prismadb";
 import { ColorColumn } from "./components/columns"
-
-// Initialize Prisma Client
-const prismadb = new PrismaClient()
 
 async function ColorsPage(
   { params }: { params: { storeId: string } }

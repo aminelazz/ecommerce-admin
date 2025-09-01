@@ -11,7 +11,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 
 import Heading from "@/components/ui/heading"
 import AlertModal from "@/components/modals/alert-modal"
-import { Billboard, Category } from "@/lib/generated/prisma"
+import { Billboard, Category } from "@prisma/client"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"

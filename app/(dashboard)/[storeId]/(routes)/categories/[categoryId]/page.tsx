@@ -1,10 +1,7 @@
 import React from 'react'
 
-import { PrismaClient } from "@/lib/generated/prisma"
+import prismadb from "@/lib/prismadb";
 import CategoryForm from './components/category-form';
-
-// Initialize Prisma Client
-const prismadb = new PrismaClient()
 
 async function CategoryPage(
   { params }: { params: { categoryId: string; storeId: string }}

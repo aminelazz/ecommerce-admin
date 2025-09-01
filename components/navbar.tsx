@@ -5,10 +5,7 @@ import { redirect } from 'next/navigation'
 
 import MainNav from '@/components/main-nav'
 import StoreSwitcher from '@/components/store-switcher'
-import { PrismaClient } from '@/lib/generated/prisma'
-
-// Initialize Prisma Client
-const prismadb = new PrismaClient()
+import prismadb from "@/lib/prismadb";
 
 async function Navbar() {
   const { userId } = await auth();

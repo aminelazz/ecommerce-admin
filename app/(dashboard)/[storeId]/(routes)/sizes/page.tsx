@@ -2,11 +2,8 @@ import React from "react"
 import { format } from "date-fns"
 
 import SizeClient from "./components/size-client"
-import { PrismaClient } from "@/lib/generated/prisma"
+import prismadb from "@/lib/prismadb";
 import { SizeColumn } from "./components/columns"
-
-// Initialize Prisma Client
-const prismadb = new PrismaClient()
 
 async function SizesPage(
   { params }: { params: { storeId: string } }

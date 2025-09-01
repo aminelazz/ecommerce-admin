@@ -1,11 +1,8 @@
-import { auth } from '@clerk/nextjs/server'
-import { redirect } from 'next/navigation'
-import React from 'react'
+import { auth } from "@clerk/nextjs/server"
+import { redirect } from "next/navigation"
+import React from "react"
 
-import { PrismaClient } from '@/lib/generated/prisma'
-
-// Initialize Prisma Client
-const prismadb = new PrismaClient()
+import prismadb from "@/lib/prismadb";
 
 export default async function SetupLayout({
   children
@@ -15,7 +12,7 @@ export default async function SetupLayout({
   const { userId } = await auth()
 
   if (!userId) {
-    redirect('/sign-in')
+    redirect("/sign-in")
   }
 
   const store = await prismadb.store.findFirst({

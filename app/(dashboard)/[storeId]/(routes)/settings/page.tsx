@@ -2,11 +2,8 @@ import React from 'react'
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from 'next/navigation';
 
-import { PrismaClient } from "@/lib/generated/prisma"
+import prismadb from "@/lib/prismadb";
 import SettingsForm from './components/settings-form';
-
-// Initialize Prisma Client
-const prismadb = new PrismaClient()
 
 interface SettingsPageProps {
   params: {

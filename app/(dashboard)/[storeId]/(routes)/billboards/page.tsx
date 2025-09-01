@@ -2,11 +2,8 @@ import React from "react"
 import { format } from "date-fns"
 
 import BillboardClient from "./components/billboard-client"
-import { PrismaClient } from "@/lib/generated/prisma"
+import prismadb from "@/lib/prismadb";
 import { BillboardColumn } from "./components/columns"
-
-// Initialize Prisma Client
-const prismadb = new PrismaClient()
 
 async function BillboardsPage(
   { params }: { params: { storeId: string } }

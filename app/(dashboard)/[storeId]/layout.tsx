@@ -1,11 +1,8 @@
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
-import { PrismaClient } from "@/lib/generated/prisma"
+import prismadb from "@/lib/prismadb";
 import Navbar from "@/components/navbar";
-
-// Initialize Prisma Client
-const prismadb = new PrismaClient()
 
 export default async function DashboardLayout({
   children,

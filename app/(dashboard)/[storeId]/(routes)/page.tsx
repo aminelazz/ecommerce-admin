@@ -2,10 +2,7 @@ import React from 'react'
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from 'next/navigation';
 
-import { PrismaClient } from "@/lib/generated/prisma"
-
-// Initialize Prisma Client
-const prismadb = new PrismaClient()
+import prismadb from "@/lib/prismadb";
 
 interface DashboardPageProps {
   params: { storeId: string }

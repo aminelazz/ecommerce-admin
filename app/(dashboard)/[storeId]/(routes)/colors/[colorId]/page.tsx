@@ -1,10 +1,7 @@
 import React from 'react'
 
-import { PrismaClient } from "@/lib/generated/prisma"
+import prismadb from "@/lib/prismadb";
 import ColorForm from './components/color-form';
-
-// Initialize Prisma Client
-const prismadb = new PrismaClient()
 
 async function ColorPage(
   { params }: { params: { colorId: string; storeId: string }}

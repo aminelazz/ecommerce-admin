@@ -1,10 +1,7 @@
 import React from 'react'
 
-import { PrismaClient } from "@/lib/generated/prisma"
+import prismadb from "@/lib/prismadb";
 import ProductForm from './components/product-form';
-
-// Initialize Prisma Client
-const prismadb = new PrismaClient()
 
 async function ProductPage(
   { params }: { params: { productId: string; storeId: string }}

@@ -1,10 +1,7 @@
 import { NextResponse } from "next/server"
 import { auth } from "@clerk/nextjs/server"
 
-import { PrismaClient } from "@/lib/generated/prisma"
-
-// Initialize Prisma Client
-const prismadb = new PrismaClient()
+import prismadb from "@/lib/prismadb";
 
 export async function GET(
   _req: Request,
@@ -23,6 +20,9 @@ export async function GET(
         id: categoryId,
         storeId
       },
+      include: {
+        billboard: true
+      }
     })
 
     if (!category) {
